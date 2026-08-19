@@ -44,7 +44,7 @@ export async function getTournamentAttachments(
     const response: { fieldset: number } = await inquirer.prompt([
       {
         name: "fieldset",
-        type: "list",
+        type: "select",
         message: "Attach to which fieldset? ",
         choices: fieldsets.data.map((d) => ({ name: d.name, value: d.id })),
       },
@@ -92,7 +92,7 @@ export async function getTournamentAttachments(
     const response: { division: number } = await inquirer.prompt([
       {
         name: "division",
-        type: "list",
+        type: "select",
         message: "Attach to which division? ",
         choices: divisions.data.map((d) => ({ name: d.name, value: d.id })),
         default: division.id,
@@ -146,13 +146,15 @@ export async function getAssociations(
       )?.sceneName as string | undefined;
       questions.push({
         name: "obs",
-        type: "list",
+        type: "select",
         message: `What OBS scene do you want to associate with ${field.name}? `,
-        choices: scenes.scenes.map((s) => s.sceneName as string),
+        choices: scenes.scenes.map((s) => ({
+          name: s.sceneName as string,
+          value: s.sceneName as string,
+        })),
         default: defaultValue,
       });
     }
-
 
     const response = await inquirer.prompt<Association>(questions);
     associations[field.id] = response;
@@ -230,14 +232,17 @@ export async function getDisplayAssociations(
     if (obsScenes.scenes.length > 1) {
       const defaultValue = obsScenes.scenes.find((v) =>
         (v.sceneName as string).toLowerCase().includes(mode.toLowerCase())
-      );
+      )?.sceneName as string | undefined;
       questions.push({
-        type: "list",
+        type: "select",
         name: "obs",
         message: `${mode} OBS Scene? `,
         default: defaultValue,
         choices: [
-          ...obsScenes.scenes.map((s) => s.sceneName as string),
+          ...obsScenes.scenes.map((s) => ({
+            name: s.sceneName as string,
+            value: s.sceneName as string,
+          })),
           { name: "No Association", value: undefined },
         ],
       });

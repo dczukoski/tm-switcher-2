@@ -1,3 +1,5 @@
+In progress code based on the MIT Licensed TM-Switcher by Brendan McGuire
+
 As always, contributions are always welcome! To develop, you will need to get access to a set of Third Party Integrations from DWAB. 
 
 ## Run From Source
@@ -10,19 +12,20 @@ software installed:
 - [Git](https://git-scm.com) (recommended)
 - npm modules
   - typescript
-  - atem-connection
   - obs-websocket-js
   - vex-tm-client
 
 To run from source, you would need to supply your third-party credentials from DWAB. More
-information about obtaining these can be found in the [REC Foundation Knowledge Base](https://kb.roboticseducation.org/hc/en-us/articles/19238156122135)
+information about obtaining these can be found [TBD]
 
 1. Clone or download this repository
 
 ```
-git clone git@github.com:brenapp/tm-switcher.git
+git clone git@github.com:dczukoski/tm-switcher.git
 cd tm-switcher
 ```
+
+** TODO: NOTE WE WILL BE CHANGING THIS **
 
 2. Enter your client credentials issued by DWAB
 
@@ -58,6 +61,6 @@ npm run-script run
 
 ## Notice
 
-By submitting contributions to this project, you agree to license all contributions under the current project license if merged. The current project license can be obtained at https://github.com/brenapp/tm-switcher/blob/master/LICENSE. 
+By submitting contributions to this project, you agree to license all contributions under the current project license if merged. The current project license can be obtained at https://github.com/dczukoski/tm-switcher/blob/master/LICENSE. 
 
 Additionally, you attest that you have the legal right of authorship for the changes you are submitting.

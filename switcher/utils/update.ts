@@ -1,14 +1,14 @@
 import { Endpoints } from "@octokit/types";
 import chalk from "chalk";
 
-import { version } from "~data/package.json" assert { type: "json" };
+import { version } from "~data/package.json" with { type: "json" };
 
 export type ListReleasesResponse =
   Endpoints["GET /repos/{owner}/{repo}/releases"]["response"]["data"];
 export type Release = ListReleasesResponse[0];
 
 const RELEASES_URL =
-  "https://api.github.com/repos/brenapp/tm-switcher/releases";
+  "https://api.github.com/repos/dczukoski/tm-switcher/releases";
 
 export async function getReleases(): Promise<ListReleasesResponse | null> {
   try {

@@ -3,7 +3,7 @@ bin
 out
 .DS_Store
 secret
-
+.vscode
 *.csv
 tm_switcher_*.json
 .env
