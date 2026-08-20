@@ -1,10 +1,8 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
 import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import { typescriptPaths } from "rollup-plugin-typescript-paths";
 import injectProcessEnv from "rollup-plugin-inject-process-env";
 
 import "dotenv/config";
@@ -24,38 +22,13 @@ const generateDenoJson = {
   },
 };
 
-const projectRoot = path.dirname(fileURLToPath(import.meta.url));
-const toId = (...p) =>
-  path
-    .join(projectRoot, ...p)
-    .split(path.sep)
-    .join("/");
-
-/**
- * Resolves the project's "~data/..." import aliases to real files on disk.
- * Replaces rollup-plugin-typescript-paths, which produced doubled paths
- * (e.g. /project/project/package.json) and broke the build.
- * @type {import('rollup').Plugin}
- */
-const resolveDataAliases = {
-  name: "resolve-data-aliases",
-  resolveId(source) {
-    if (source === "~data/package.json") return toId("package.json");
-    if (source.startsWith("~data:schema/"))
-      return toId("schemas", source.slice("~data:schema/".length));
-    if (source.startsWith("~data:secret/"))
-      return toId("secret", source.slice("~data:secret/".length));
-    return null;
-  },
-};
-
 /**
  * @type {import('rollup').RollupOptions}
  */
 const config = {
   input: "./switcher/main.ts",
   plugins: [
-    resolveDataAliases,
+    typescriptPaths(),
     typescript({
       outputToFilesystem: false,
     }),
@@ -78,6 +51,12 @@ const config = {
       TM_SWITCHER_LOG_SERVER: process.env.TM_SWITCHER_LOG_SERVER,
       TM_SWITCHER_LOG_TOKEN: process.env.TM_SWITCHER_LOG_TOKEN,
     }),
+    /**
+     * Emit an empty deno.json file as a sibling to the output bundle. This is
+     * to prevent deno compile from guamlessly trying to include node_modules
+     * and host/node_modules in the output bundle, tripling the size of the
+     * binary.
+     **/
     generateDenoJson,
   ],
   output: {

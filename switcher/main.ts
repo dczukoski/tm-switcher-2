@@ -30,7 +30,7 @@ const BEHAVIORS: { [key: string]: Behavior } = {
 
 async function main() {
   console.log(
-    `TM Switcher v${version} - Created by Brendan McGuire (brendan@bren.app)`
+    `TM Switcher v${version}`
   );
 
   await promptForUpdate();

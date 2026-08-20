@@ -1,4 +1,6 @@
-In progress code based on the MIT Licensed TM-Switcher by Brendan McGuire
+In progress code based on the MIT Licensed TM-Switcher by Brendan McGuire.
+
+This is not an upgrade. Dependencies have been updated and ATEM functionality removed. Users will also all need their own key credentials from DWAB.
 
 # TM Switcher
 
