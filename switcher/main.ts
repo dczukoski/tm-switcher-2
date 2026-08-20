@@ -16,7 +16,7 @@ import { LoggingBehavior } from "./behaviors/logging.js";
 import { RecordingBehavior } from "./behaviors/recording.js";
 import { CoreSwitcherBehavior } from "./behaviors/switcher.js";
 
-import { version } from "~data/package.json" assert { type: "json" };
+import { version } from "~data/package.json" with { type: "json" };
 import { saveOptions } from "./utils/options.js";
 
 const BEHAVIORS: { [key: string]: Behavior } = {

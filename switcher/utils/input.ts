@@ -112,7 +112,6 @@ export async function getTournamentAttachments(
 
 export type Association = {
   obs: string | undefined;
-  atem: number | undefined;
 };
 
 export type FieldAssociations = Record<string, Association | undefined>;
@@ -138,7 +137,7 @@ export async function getAssociations(
 
   for (const field of fields.data) {
     const questions: DistinctQuestion[] = [];
-    const initial: Association = { obs: undefined, atem: undefined };
+    const initial: Association = { obs: undefined };
 
     if (obs && scenes.scenes.length > 0) {
       const defaultValue = scenes.scenes.find(

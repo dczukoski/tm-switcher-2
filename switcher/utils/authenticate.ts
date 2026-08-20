@@ -75,51 +75,19 @@ export async function getOBSCredentials(): Promise<OBSCredentials | null> {
   ]);
 }
 
-export type ATEMCredentials = {
-  address: string;
-};
-
-export async function getATEMCredentials(): Promise<ATEMCredentials | null> {
-  const { useAtem }: { useAtem: boolean } = await inquirer.prompt([
-    {
-      type: "confirm",
-      name: "useAtem",
-      message: "Would you like to control an ATEM device over the network?",
-      default: false,
-    },
-  ]);
-
-  if (useAtem) {
-    const { address } = await inquirer.prompt<ATEMCredentials>([
-      {
-        type: "input",
-        message: "ATEM Address:",
-        name: "address",
-      },
-    ]);
-
-    return { address };
-  } else {
-    return null;
-  }
-}
-
 export type Credentials = {
   tm: TMCredentials;
   obs: OBSCredentials | null;
-  atem: ATEMCredentials | null;
 };
 
 export async function getCredentials(): Promise<Credentials> {
   const tm = await getTournamentManagerCredentials();
   const obs = await getOBSCredentials();
-  const atem = await getATEMCredentials();
 
   log(`info`, `TM Address: ${tm.address}`, false);
   log(`info`, `OBS Address: ${obs?.address}`, false);
-  log(`info`, `ATEM Address: ${atem?.address}`, false);
 
-  return { tm, obs, atem };
+  return { tm, obs};
 }
 
 

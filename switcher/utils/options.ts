@@ -3,7 +3,7 @@ import { SwitcherOptions } from "../behavior.js";
 import { readFile, writeFile } from "node:fs/promises";
 import { Client } from "vex-tm-client";
 
-import * as schema from "~data:schema/config.schema.json" assert { type: "json" };
+import * as schema from "~data:schema/config.schema.json" with { type: "json" };
 
 const ajv = new Ajv();
 

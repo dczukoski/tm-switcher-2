@@ -12,7 +12,7 @@ Features:
 
 ## Install
 
-Download the most recent build for your OS from [releases](https://github.com/dczukoski/tm-switcher/releases/), and run!
+Download the most recent build for your OS from [releases](https://github.com/dczukoski/tm-switcher-2/releases/), and run!
 
 ## Running at Events
 
@@ -36,5 +36,3 @@ If your event has trouble with this tool, please get in touch with me!
 ## Disclaimer
 
 This software is not officially supported by DWAB, VEX Robotics, Global Robotics and Science Foundation, Robot Revolution or the REC Foundation. Event Partners utilizing TM Switcher are doing so at their own risk. This software is licensed under the MIT License, which permits commercial and non-commercial uses. The author and all contributors disclaim all liability for running this software at your events.
-
-> If you are interested in premium onsite support for TM Switcher or escalated development to support features for your event, please reach out at davin@robotrevolution.net

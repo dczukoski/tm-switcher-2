@@ -61,6 +61,6 @@ npm run-script run
 
 ## Notice
 
-By submitting contributions to this project, you agree to license all contributions under the current project license if merged. The current project license can be obtained at https://github.com/dczukoski/tm-switcher/blob/master/LICENSE. 
+By submitting contributions to this project, you agree to license all contributions under the current project license if merged. The current project license can be obtained at https://github.com/dczukoski/tm-switcher-2/blob/master/LICENSE. 
 
 Additionally, you attest that you have the legal right of authorship for the changes you are submitting.

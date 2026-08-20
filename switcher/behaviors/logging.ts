@@ -31,7 +31,7 @@ export const LoggingBehavior: Behavior = async ({ associations, attachments, con
         const association = associations[fieldID];
 
         const matchName = fieldset.state.match ? getMatchName(fieldset.state.match) : "Match";
-        log("info", `[${timecode}] ${matchName} started on field ${fieldID} [OBS: ${association?.obs ?? "none"}, ATEM: ${association?.atem ?? "none"}]`);
+        log("info", `[${timecode}] ${matchName} started on field ${fieldID} [OBS: ${association?.obs ?? "none"}]`);
 
         let match: Match | undefined = undefined;
 
@@ -81,7 +81,7 @@ export const LoggingBehavior: Behavior = async ({ associations, attachments, con
 
         const matchName = fieldset.state.match ? getMatchName(fieldset.state.match) : "Match";
 
-        log("info", `[${timecode}] ${matchName} activated on field ${fieldID} [OBS: ${association?.obs ?? "none"}, ATEM: ${association?.atem ?? "none"}]`);
+        log("info", `[${timecode}] ${matchName} activated on field ${fieldID} [OBS: ${association?.obs ?? "none"}]`);
     });
 
     fieldset.on("fieldMatchAssigned", async event => {
@@ -90,7 +90,7 @@ export const LoggingBehavior: Behavior = async ({ associations, attachments, con
         const association = associations[fieldID];
 
         const matchName = getMatchName(fieldset.state.match);
-        log("info", `[${timecode}] ${matchName} assigned to field ${fieldID} [OBS: ${association?.obs ?? "none"}, ATEM: ${association?.atem ?? "none"}]`);
+        log("info", `[${timecode}] ${matchName} assigned to field ${fieldID} [OBS: ${association?.obs ?? "none"}]`);
     });
 
     fieldset.on("audienceDisplayChanged", async event => {

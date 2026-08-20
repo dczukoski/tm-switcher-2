@@ -2,7 +2,7 @@ import { networkInterfaces, tmpdir } from "os";
 import { join } from "path";
 import { FileHandle, open } from "fs/promises";
 
-import { version } from "~data/package.json" assert { type: "json" };
+import { version } from "~data/package.json" with { type: "json" };
 
 let LOG_HANDLE: FileHandle | null = null;
 

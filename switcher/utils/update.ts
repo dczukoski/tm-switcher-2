@@ -8,7 +8,7 @@ export type ListReleasesResponse =
 export type Release = ListReleasesResponse[0];
 
 const RELEASES_URL =
-  "https://api.github.com/repos/dczukoski/tm-switcher/releases";
+  "https://api.github.com/repos/dczukoski/tm-switcher-2/releases";
 
 export async function getReleases(): Promise<ListReleasesResponse | null> {
   try {

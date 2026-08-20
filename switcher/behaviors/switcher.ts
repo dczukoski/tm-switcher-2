@@ -37,7 +37,7 @@ export const CoreSwitcherBehavior: Behavior = async ({ associations, attachments
         }
     });
 
-    // Update OBS and ATEM Scene based on Audience Display Mode
+    // Update OBS Scene based on Audience Display Mode
     fieldset.on("audienceDisplayChanged", async ({ display }) => {
         const association = displayAssociations[display];
 

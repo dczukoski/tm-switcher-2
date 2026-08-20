@@ -3,7 +3,7 @@ import * as os from "os";
 import inquirer from "inquirer";
 import { keypress } from "./keypress.js";
 
-import { version } from "~data/package.json" assert { type: "json" };
+import { version } from "~data/package.json" with { type: "json" };
 import { getFilePaths } from "./logging.js";
 import { getLogServerAuthorization } from "./secrets.js";
 

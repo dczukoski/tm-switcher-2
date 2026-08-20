@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://raw.githubusercontent.com/dczukoski/tm-switcher/refs/heads/master/schemas/config.schema.json",
+  "$id": "https://raw.githubusercontent.com/dczukoski/tm-switcher-2/refs/heads/master/schemas/config.schema.json",
   "title": "TM Switcher Configuration",
   "description": "Configuration for TM Switcher.",
   "type": "object",
@@ -77,11 +77,6 @@
         "obs": {
           "type": "string",
           "description": "The OBS scene to associate this field with.",
-          "nullable": true
-        },
-        "atem": {
-          "type": "number",
-          "description": "The ATEM program input to associate this field with.",
           "nullable": true
         }
       }
